@@ -1,0 +1,8 @@
+task1,2,start
+start,0
+task2,4,start
+task3,3,task1,task2
+task4,2,task3
+task5,6,task3
+task6,3,task4,task5
+finish,0,task6

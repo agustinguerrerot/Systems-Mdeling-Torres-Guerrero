@@ -1,0 +1,29 @@
+digraph G {
+start[shape=box];
+start->task1;
+task1[label="task1 (2 days)"];
+start[shape=box];
+start->task2;
+task2[label="task2 (4 days)"];
+task1[shape=box];
+task1->task3;
+task3[label="task3 (3 days)"];
+task2[shape=box];
+task2->task3;
+task3[label="task3 (3 days)"];
+task3[shape=box];
+task3->task4;
+task4[label="task4 (2 days)"];
+task3[shape=box];
+task3->task5;
+task5[label="task5 (6 days)"];
+task4[shape=box];
+task4->task6;
+task6[label="task6 (3 days)"];
+task5[shape=box];
+task5->task6;
+task6[label="task6 (3 days)"];
+task6[shape=box];
+task6->finish;
+finish[label="finish (0 days)"];
+}
