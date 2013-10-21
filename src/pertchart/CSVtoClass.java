@@ -14,8 +14,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//test
-
 public class CSVtoClass {
 
 	public List<Tasks> convertCsvToClass(String path) {

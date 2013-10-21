@@ -8,10 +8,10 @@ import java.util.List;
 public class FileManager {
 	 public static void main(String[] args) {
 
-		  // reading data from a csv file
-		  System.out.println("Reading data from csv :");
-		  LoadCSV instanceTask = new LoadCSV();
-		  instanceTask.loadCSV();
+		  //reading data from a csv file
+		 //System.out.println("Reading data from csv :");
+		  //LoadCSV instanceTask = new LoadCSV();
+		  //instanceTask.loadCSV();
 
 		  // reading data from a csv file and convert to java object
 		  System.out.println("Reading data from csv and convert to java object:");
