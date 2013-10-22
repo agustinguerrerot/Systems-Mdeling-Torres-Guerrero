@@ -12,7 +12,7 @@ public class Tasks {
 
 	 private String taskName;
 	 private int taskDuration;
-	 private List<String> preceedingTasks;
+	 List<String> preceedingTasks;
 	 
 	 public Tasks (){
 		preceedingTasks = new LinkedList<String>(); 

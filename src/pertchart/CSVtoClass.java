@@ -16,7 +16,9 @@ import java.util.List;
 
 public class CSVtoClass {
 
-	public List<Tasks> convertCsvToClass(String path) {
+//	public List<Tasks> convertCsvToClass(String path) {
+	public void convertCsvToClass(String path) {
+	
 		  File infile = new File(path);
 		  File outfile = new File(infile.getParent(), "TorresAndGuerrero.dot");
 		  String csvToRead = infile.getAbsolutePath();
@@ -33,7 +35,6 @@ public class CSVtoClass {
 				  // split on comma(',')
 				  String[] tasks = line.split(splitBy);
 				 
-				  // create car object to store values
 				  Tasks taskObject = new Tasks();
 				  taskObject.setTaskName(tasks[0]);
 				  taskObject.setTaskDuration(Integer.parseInt(tasks[1]));
@@ -51,12 +52,12 @@ public class CSVtoClass {
 			  createDotFile(taskList, outfile);
 		  }
 		  
-		  catch (FileNotFoundException e) {
-			  e.printStackTrace();
-		  }
+//		  catch (FileNotFoundException e) {
+//			  e.printStackTrace();
+//		  }
 		  
-		  catch (IOException e) {
-			  e.printStackTrace();
+		  catch (Exception e) {
+			  System.out.println("Incorrect pert file format!");
 		  }
 		  
 		  finally {
@@ -67,10 +68,19 @@ public class CSVtoClass {
 				  
 				  catch (IOException e) {
 					  e.printStackTrace();
+					  System.out.println("Error closing parser.");
 				  }
 			  }
 		 }
-		 return taskList;
+		  int noDependenciesCount = 0;
+		  for (int i = 0; i < taskList.size(); i++) {
+			   if (taskList.get(i).preceedingTasks.isEmpty()) {
+				   noDependenciesCount++;
+			   }
+		  }
+		  if (noDependenciesCount > 1) {
+			   System.out.println("Incorrect pert file format!");
+			  }
 	}
 
 	public void printTaskList(List<Tasks> taskListToPrint) {
@@ -98,7 +108,7 @@ public class CSVtoClass {
 				if (taskListToPrint.get(i).getPreceedingTasks().isEmpty()){
 					noPreceedingTaskCounter ++;
 					if (noPreceedingTaskCounter>1){
-							throw new IllegalArgumentException("Wrong .pert file format!");
+							throw new IllegalArgumentException("Incorrect pert file format!");
 						}
 					}
 					for (int j = 0; j < taskListToPrint.get(i).getPreceedingTasks().size(); j++){

@@ -14,10 +14,10 @@ public class FileManager {
 		  //instanceTask.loadCSV();
 
 		  // reading data from a csv file and convert to java object
-		  System.out.println("Reading data from csv and convert to java object:");
+		  System.out.println("Reading .pert file...");
 		  CSVtoClass csvtoClass = new CSVtoClass();
-		  List<Tasks> allTasks = csvtoClass.convertCsvToClass(args[0]);
-
+		  csvtoClass.convertCsvToClass(args[0]);
+		  
 	        //Task[] result = criticalPath(allTasks);
 	        //print(result);
 		  
